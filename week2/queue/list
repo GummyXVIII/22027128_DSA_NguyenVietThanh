@@ -1,0 +1,40 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class QueueList {
+private:
+    vector<int> a;
+
+public:
+    bool isEmpty() {
+        return a.empty();
+    }
+
+    void enqueue(int x) {
+        a.push_back(x);
+    }
+
+    bool dequeue() {
+        if (isEmpty()) return false;
+
+        a.erase(a.begin());
+        return true;
+    }
+
+    bool front(int &x) {
+        if (isEmpty()) return false;
+
+        x = a.front();
+        return true;
+    }
+
+    void display() {
+        cout << "Front -> ";
+        for (int i = 0; i < (int)a.size(); i++) {
+            cout << a[i] << " ";
+        }
+        cout << "<- Rear" << endl;
+    }
+};
